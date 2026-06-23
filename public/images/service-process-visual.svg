@@ -1,0 +1,97 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Aurora Hunter 服务流程视觉图</title>
+  <desc id="desc">深色北境背景中，手机中文群聊、行程文件、路线地图与当地车辆组成旅行服务流程画面。</desc>
+  <defs>
+    <radialGradient id="auroraA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1080 150) rotate(126) scale(760 420)">
+      <stop stop-color="#44FFD2" stop-opacity=".72"/>
+      <stop offset=".34" stop-color="#2BD4FF" stop-opacity=".32"/>
+      <stop offset="1" stop-color="#06111E" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auroraB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(500 130) rotate(57) scale(620 310)">
+      <stop stop-color="#B766FF" stop-opacity=".64"/>
+      <stop offset=".38" stop-color="#2BEAC7" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#071221" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sky" x1="800" y1="0" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#020713"/>
+      <stop offset=".52" stop-color="#071628"/>
+      <stop offset="1" stop-color="#0A1724"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="490" y1="190" x2="900" y2="850" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5FBFF" stop-opacity=".96"/>
+      <stop offset="1" stop-color="#D9E8F2" stop-opacity=".9"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="560" y1="250" x2="560" y2="790" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#122A3D"/>
+      <stop offset="1" stop-color="#07131F"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="34" stdDeviation="34" flood-color="#000814" flood-opacity=".38"/>
+    </filter>
+    <pattern id="grain" width="120" height="120" patternUnits="userSpaceOnUse">
+      <circle cx="18" cy="20" r="1.1" fill="#fff" opacity=".08"/>
+      <circle cx="84" cy="58" r="1" fill="#fff" opacity=".06"/>
+      <circle cx="46" cy="94" r="1.2" fill="#fff" opacity=".05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <rect width="1600" height="1000" fill="url(#grain)" opacity=".52"/>
+  <path d="M116 174C280 42 487 64 642 184C760 275 830 358 980 338C1140 317 1222 189 1488 138" stroke="url(#auroraA)" stroke-width="78" stroke-linecap="round" filter="url(#softGlow)" opacity=".88"/>
+  <path d="M75 255C284 92 463 133 640 276C779 389 871 449 1065 405C1228 368 1352 266 1542 216" stroke="url(#auroraB)" stroke-width="44" stroke-linecap="round" filter="url(#softGlow)" opacity=".68"/>
+  <path d="M0 815C198 755 334 777 486 819C640 862 776 868 956 821C1143 772 1344 749 1600 817V1000H0V815Z" fill="#081523"/>
+  <path d="M0 866C198 822 377 824 560 872C722 915 866 907 1030 869C1210 827 1395 814 1600 860V1000H0V866Z" fill="#0D2030"/>
+
+  <g opacity=".86">
+    <path d="M1080 673L1154 557L1229 673H1080Z" fill="#E9F7FB"/>
+    <path d="M1152 673L1241 521L1344 673H1152Z" fill="#D8EEF6"/>
+    <path d="M1265 673L1356 554L1444 673H1265Z" fill="#BBD8E8"/>
+  </g>
+
+  <g filter="url(#cardShadow)">
+    <rect x="322" y="182" width="390" height="650" rx="58" fill="url(#phone)" stroke="#63F5D6" stroke-opacity=".28" stroke-width="2"/>
+    <rect x="350" y="238" width="334" height="532" rx="34" fill="#F3F8F8"/>
+    <rect x="382" y="278" width="270" height="48" rx="24" fill="#E6F0F2"/>
+    <circle cx="410" cy="302" r="14" fill="#20CFAE"/>
+    <text x="438" y="309" fill="#102332" font-family="'PingFang SC', 'Noto Sans SC', sans-serif" font-size="24" font-weight="700">Aurora Hunter 中文服务群</text>
+    <rect x="382" y="360" width="218" height="58" rx="20" fill="#DDF4EE"/>
+    <text x="410" y="395" fill="#173448" font-family="'PingFang SC', 'Noto Sans SC', sans-serif" font-size="22">出发日期与人数已确认</text>
+    <rect x="430" y="444" width="222" height="58" rx="20" fill="#142B3C"/>
+    <text x="456" y="480" fill="#F7FEFF" font-family="'PingFang SC', 'Noto Sans SC', sans-serif" font-size="22">当地旅行社同步方案</text>
+    <rect x="382" y="528" width="246" height="58" rx="20" fill="#DDF4EE"/>
+    <text x="410" y="564" fill="#173448" font-family="'PingFang SC', 'Noto Sans SC', sans-serif" font-size="22">群内中文沟通与提醒</text>
+    <rect x="430" y="612" width="206" height="58" rx="20" fill="#142B3C"/>
+    <text x="456" y="648" fill="#F7FEFF" font-family="'PingFang SC', 'Noto Sans SC', sans-serif" font-size="22">现场以安全安排为准</text>
+    <circle cx="517" cy="804" r="16" fill="#20384A"/>
+  </g>
+
+  <g filter="url(#cardShadow)">
+    <rect x="765" y="248" width="430" height="330" rx="34" fill="url(#glass)" stroke="#fff" stroke-opacity=".56"/>
+    <text x="820" y="318" fill="#0C2031" font-family="'Cormorant Garamond', Georgia, serif" font-size="48" letter-spacing="10">TRAVEL</text>
+    <text x="823" y="363" fill="#0C2031" font-family="'PingFang SC', 'Noto Sans SC', sans-serif" font-size="26" font-weight="700">行程方案与合同主体说明</text>
+    <rect x="824" y="408" width="270" height="16" rx="8" fill="#AFC7D2"/>
+    <rect x="824" y="448" width="314" height="16" rx="8" fill="#AFC7D2"/>
+    <rect x="824" y="488" width="224" height="16" rx="8" fill="#AFC7D2"/>
+    <circle cx="1112" cy="488" r="54" fill="none" stroke="#D74D4D" stroke-width="8"/>
+    <text x="1074" y="498" fill="#D74D4D" font-family="'PingFang SC', 'Noto Sans SC', sans-serif" font-size="28" font-weight="800">LOCAL</text>
+  </g>
+
+  <g filter="url(#cardShadow)">
+    <rect x="835" y="612" width="436" height="178" rx="32" fill="#102B3D" stroke="#44FFD2" stroke-opacity=".28"/>
+    <path d="M900 722C986 626 1068 740 1160 654" stroke="#64FBDD" stroke-width="8" stroke-linecap="round" stroke-dasharray="1 24"/>
+    <circle cx="900" cy="722" r="14" fill="#64FBDD"/>
+    <circle cx="1160" cy="654" r="14" fill="#F7E7A0"/>
+    <path d="M990 744H1130C1154 744 1172 728 1172 706V686H1202C1220 686 1236 700 1240 718L1248 754H990V744Z" fill="#EAF7FA"/>
+    <circle cx="1040" cy="760" r="24" fill="#071522" stroke="#64FBDD" stroke-width="6"/>
+    <circle cx="1196" cy="760" r="24" fill="#071522" stroke="#64FBDD" stroke-width="6"/>
+    <text x="884" y="660" fill="#F6FEFF" font-family="'PingFang SC', 'Noto Sans SC', sans-serif" font-size="24" font-weight="700">俄罗斯当地接待</text>
+  </g>
+
+  <g opacity=".95">
+    <text x="113" y="123" fill="#E8F7F8" font-family="'Cormorant Garamond', Georgia, serif" font-size="72" letter-spacing="14">AURORA</text>
+    <text x="118" y="172" fill="#87F8DF" font-family="'PingFang SC', 'Noto Sans SC', sans-serif" font-size="28" letter-spacing="8">咨询在中国 · 接待在俄罗斯</text>
+  </g>
+</svg>
