@@ -365,10 +365,15 @@ const faqItems = [
 
 const nav = [["首页", "/"], ["完整行程", "/#journeys"], ["北境风景", "/experiences"], ["获取方案", "/custom"], ["旅行攻略", "/guides"], ["关于我们", "/about"]];
 
+function normalizePath(pathname) {
+  if (!pathname || pathname === "/") return "/";
+  return pathname.replace(/\/+$/, "");
+}
+
 function useRoute() {
-  const [path, setPath] = useState(window.location.pathname);
-  useEffect(() => { const onPop = () => setPath(window.location.pathname); window.addEventListener("popstate", onPop); return () => window.removeEventListener("popstate", onPop); }, []);
-  const go = (to) => { const url = new URL(to, window.location.origin); window.history.pushState({}, "", `${url.pathname}${url.hash}`); setPath(url.pathname); requestAnimationFrame(() => url.hash ? document.querySelector(url.hash)?.scrollIntoView({ behavior: "smooth" }) : window.scrollTo({ top: 0, behavior: "smooth" })); };
+  const [path, setPath] = useState(normalizePath(window.location.pathname));
+  useEffect(() => { const onPop = () => setPath(normalizePath(window.location.pathname)); window.addEventListener("popstate", onPop); return () => window.removeEventListener("popstate", onPop); }, []);
+  const go = (to) => { const url = new URL(to, window.location.origin); window.history.pushState({}, "", `${url.pathname}${url.hash}`); setPath(normalizePath(url.pathname)); requestAnimationFrame(() => url.hash ? document.querySelector(url.hash)?.scrollIntoView({ behavior: "smooth" }) : window.scrollTo({ top: 0, behavior: "smooth" })); };
   return [path, go];
 }
 
