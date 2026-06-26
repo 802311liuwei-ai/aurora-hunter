@@ -364,6 +364,7 @@ const faqItems = [
 ];
 
 const nav = [["首页", "/"], ["完整行程", "/#journeys"], ["北境风景", "/experiences"], ["获取方案", "/custom"], ["旅行攻略", "/guides"], ["关于我们", "/about"]];
+const leadEndpoint = import.meta.env.VITE_GOOGLE_SHEETS_WEB_APP_URL || "";
 
 function normalizePath(pathname) {
   if (!pathname || pathname === "/") return "/";
@@ -440,7 +441,40 @@ function Timeline({ journey }) { return <div className="timeline"><h2>{journey.f
 
 function CustomPage({ go }) {
   const [done, setDone] = useState(false);
-  return <><PageHero kicker="获取行程方案" title="先告诉我们，你想怎样抵达北境" text="提交的是旅行咨询需求，不会产生在线交易。合作的俄罗斯持牌旅行社将提供具体旅游方案与合同，Aurora Hunter 提供群内中文服务。" /><section className="custom-layout wrap"><div className="custom-visual"><img src="/images/aurora-village.png" alt="极光下的摩尔曼斯克村落" /><div><b>中文</b><span>群内沟通服务</span></div><div><b>当地</b><span>旅行社接待</span></div></div><form className="custom-form" onSubmit={(e) => { e.preventDefault(); setDone(true); }}><h2>告诉我们你的计划</h2><div className="form-grid"><label>称呼<input required placeholder="怎么称呼你" /></label><label>联系电话或微信<input required placeholder="方便中文顾问联系" /></label><label>预计出发日期<input type="date" /></label><label>出行人数<select><option>1–2人</option><option>3–5人</option><option>6–10人</option><option>10人以上</option></select></label></div><label>感兴趣的方向<select><option>冬季极光沉浸之旅</option><option>追光与北境经典线</option><option>夏季捷里别尔卡与寻鲸</option><option>雷巴奇半岛越野</option><option>还不确定，希望获得建议</option></select></label><label>补充需求<textarea placeholder="例如：带孩子、希望慢节奏、想安排摄影、饮食或健康注意事项……" /></label><button className="button button--accent" type="submit">获取行程方案 <ArrowRight /></button>{done && <p className="success"><Check /> 已收到你的咨询需求。中文顾问会根据所留联系方式与你沟通；本页面不会进行在线交易。</p>}<button type="button" className="text-button text-button--dark" onClick={() => go("/tours")}><ArrowLeft /> 返回查看完整行程</button></form></section></>;
+  const [status, setStatus] = useState("idle");
+  const [message, setMessage] = useState("");
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setDone(false);
+    setMessage("");
+    if (!leadEndpoint) {
+      setStatus("error");
+      setMessage("表单已准备好连接 Google 表格，请先配置 VITE_GOOGLE_SHEETS_WEB_APP_URL。");
+      return;
+    }
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+    payload.page = window.location.href;
+    payload.referrer = document.referrer;
+    payload.submittedAt = new Date().toISOString();
+    setStatus("submitting");
+    try {
+      await fetch(leadEndpoint, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload),
+      });
+      setDone(true);
+      setStatus("success");
+      form.reset();
+    } catch (error) {
+      setStatus("error");
+      setMessage("提交暂时失败，请直接添加微信或电话联系中文顾问。");
+    }
+  };
+  return <><PageHero kicker="获取行程方案" title="先告诉我们，你想怎样抵达北境" text="提交的是旅行咨询需求，不会产生在线交易。合作的俄罗斯持牌旅行社将提供具体旅游方案与合同，Aurora Hunter 提供群内中文服务。" /><section className="custom-layout wrap"><div className="custom-visual"><img src="/images/aurora-village.png" alt="极光下的摩尔曼斯克村落" /><div><b>中文</b><span>群内沟通服务</span></div><div><b>当地</b><span>旅行社接待</span></div></div><form className="custom-form" onSubmit={handleSubmit}><h2>告诉我们你的计划</h2><div className="form-grid"><label>称呼<input name="name" required placeholder="怎么称呼你" autoComplete="name" /></label><label>联系电话或微信<input name="contact" required placeholder="方便中文顾问联系" autoComplete="tel" /></label><label>预计出发日期<input name="departureDate" type="date" /></label><label>出行人数<select name="travelers"><option>1-2人</option><option>3-5人</option><option>6-10人</option><option>10人以上</option></select></label></div><label>感兴趣的方向<select name="interest"><option>冬季极光沉浸之旅</option><option>追光与北境经典线</option><option>夏季捷里别尔卡与寻鲸</option><option>雷巴奇半岛越野</option><option>还不确定，希望获得建议</option></select></label><label>补充需求<textarea name="notes" placeholder="例如：带孩子、希望慢节奏、想安排摄影、饮食或健康注意事项……" /></label><input type="hidden" name="source" value="aurorahunterarctic.com/custom" /><button className="button button--accent" type="submit" disabled={status === "submitting"}>{status === "submitting" ? "正在提交..." : "获取行程方案"} <ArrowRight /></button>{done && <p className="success"><Check /> 已收到你的咨询需求。中文顾问会根据所留联系方式与你沟通；本页面不会进行在线交易。</p>}{status === "error" && <p className="form-error">{message}</p>}<button type="button" className="text-button text-button--dark" onClick={() => go("/tours")}><ArrowLeft /> 返回查看完整行程</button></form></section></>;
 }
 
 function GuidesPage({ go }) {
@@ -485,6 +519,23 @@ export function App() {
       document.head.appendChild(meta);
     }
     meta.setAttribute("content", description);
+    const canonicalUrl = new URL(path === "/" ? "/" : path, "https://aurorahunterarctic.com").href;
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", canonicalUrl);
+    [["property", "og:title", title], ["property", "og:description", description], ["property", "og:url", canonicalUrl], ["name", "twitter:title", title], ["name", "twitter:description", description]].forEach(([kind, name, content]) => {
+      let tag = document.querySelector(`meta[${kind}="${name}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(kind, name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    });
   }, [path]);
   const content = useMemo(() => {
     if (path === "/") return <HomePage go={go} />;
