@@ -1,5 +1,6 @@
 const SHEET_NAME = "Aurora Hunter Leads";
-const DEFAULT_NOTIFY_EMAIL = "your-email@example.com";
+const SPREADSHEET_TITLE = "Aurora Hunter Leads";
+const DEFAULT_NOTIFY_EMAIL = "802311liuwei@gmail.com";
 
 function doPost(event) {
   const payload = JSON.parse((event && event.postData && event.postData.contents) || "{}");
@@ -24,7 +25,7 @@ function doPost(event) {
 }
 
 function getLeadSheet_() {
-  const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  const spreadsheet = getLeadSpreadsheet_();
   let sheet = spreadsheet.getSheetByName(SHEET_NAME);
   if (!sheet) {
     sheet = spreadsheet.insertSheet(SHEET_NAME);
@@ -43,6 +44,24 @@ function getLeadSheet_() {
     sheet.setFrozenRows(1);
   }
   return sheet;
+}
+
+function getLeadSpreadsheet_() {
+  const properties = PropertiesService.getScriptProperties();
+  const spreadsheetId = properties.getProperty("SPREADSHEET_ID");
+  if (spreadsheetId) {
+    return SpreadsheetApp.openById(spreadsheetId);
+  }
+
+  const activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  if (activeSpreadsheet) {
+    properties.setProperty("SPREADSHEET_ID", activeSpreadsheet.getId());
+    return activeSpreadsheet;
+  }
+
+  const spreadsheet = SpreadsheetApp.create(SPREADSHEET_TITLE);
+  properties.setProperty("SPREADSHEET_ID", spreadsheet.getId());
+  return spreadsheet;
 }
 
 function sendLeadReminder_(payload) {
