@@ -37,6 +37,8 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
+        env:
+          VITE_GOOGLE_SHEETS_WEB_APP_URL: ${{ secrets.VITE_GOOGLE_SHEETS_WEB_APP_URL }}
         run: pnpm run build
 
       - name: SPA fallback

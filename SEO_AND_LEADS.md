@@ -50,6 +50,7 @@ Baidu's own guidance says link submission helps crawlers discover pages faster, 
    - Who has access: Anyone
 6. Copy the Web App URL and set it in the site environment:
    - `VITE_GOOGLE_SHEETS_WEB_APP_URL=https://script.google.com/macros/s/.../exec`
+   - On GitHub Pages, add it as the repository secret `VITE_GOOGLE_SHEETS_WEB_APP_URL`.
 7. Rebuild and redeploy.
 
 The form sends: name, contact, departure date, traveler count, interest, notes, page, referrer, submitted time, and source.
