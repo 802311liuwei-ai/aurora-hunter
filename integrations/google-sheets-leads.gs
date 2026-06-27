@@ -1,6 +1,6 @@
 const SHEET_NAME = "Aurora Hunter Leads";
 const SPREADSHEET_TITLE = "Aurora Hunter Leads";
-const DEFAULT_NOTIFY_EMAIL = "802311liuwei@gmail.com";
+const DEFAULT_NOTIFY_EMAIL = "aurorahunterarctic@gmail.com";
 
 function doPost(event) {
   const payload = JSON.parse((event && event.postData && event.postData.contents) || "{}");
