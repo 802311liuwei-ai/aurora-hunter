@@ -3,6 +3,7 @@ import {
   ArrowLeft, ArrowRight, CalendarBlank, Camera, Check, Clock, Compass,
   List, MapPin, Phone, ShieldCheck, Snowflake, Users, WechatLogo, X,
 } from "@phosphor-icons/react";
+import { initMarketing, trackMarketingEvent, trackPageView } from "./marketing.js";
 
 const journeys = [
   {
@@ -366,6 +367,11 @@ const faqItems = [
 const nav = [["首页", "/"], ["完整行程", "/#journeys"], ["北境风景", "/experiences"], ["获取方案", "/custom"], ["旅行攻略", "/guides"], ["关于我们", "/about"]];
 const leadEndpoint = import.meta.env.VITE_GOOGLE_SHEETS_WEB_APP_URL || "";
 
+function canonicalPath(path) {
+  if (!path || path === "/") return "/";
+  return `${path.replace(/\/+$/, "")}/`;
+}
+
 function normalizePath(pathname) {
   if (!pathname || pathname === "/") return "/";
   return pathname.replace(/\/+$/, "");
@@ -384,17 +390,17 @@ function Brand({ compact = false }) {
 
 function Header({ go, onWechat }) {
   const [open, setOpen] = useState(false);
-  return <header className="header"><div className="header__inner"><div onClick={(e) => e.target.closest("[data-link]") && go("/")}><Brand /></div><nav className="nav">{nav.map(([label, to]) => <button key={to} onClick={() => go(to)}>{label}</button>)}</nav><div className="header__actions"><button className="icon-button" onClick={onWechat} aria-label="微信咨询"><WechatLogo /></button><button className="button button--light" onClick={() => go("/custom")}>获取行程方案 <ArrowRight /></button><button className="menu-button" onClick={() => setOpen(!open)} aria-label="打开菜单">{open ? <X /> : <List />}</button></div></div>{open && <div className="mobile-nav">{nav.map(([label, to]) => <button key={to} onClick={() => { go(to); setOpen(false); }}>{label}<ArrowRight /></button>)}</div>}</header>;
+  return <header className="header"><div className="header__inner"><div onClick={(e) => e.target.closest("[data-link]") && go("/")}><Brand /></div><nav className="nav">{nav.map(([label, to]) => <button key={to} onClick={() => go(to)}>{label}</button>)}</nav><div className="header__actions"><button className="icon-button" onClick={onWechat} aria-label="微信咨询"><WechatLogo /></button><button className="button button--light" onClick={() => { trackMarketingEvent("cta_click", { label: "header_plan", category: "lead" }); go("/custom"); }}>获取行程方案 <ArrowRight /></button><button className="menu-button" onClick={() => setOpen(!open)} aria-label="打开菜单">{open ? <X /> : <List />}</button></div></div>{open && <div className="mobile-nav">{nav.map(([label, to]) => <button key={to} onClick={() => { go(to); setOpen(false); }}>{label}<ArrowRight /></button>)}</div>}</header>;
 }
 
 function SocialContact({ type, label, href, icon, onClick, disabled = false }) {
   const content = <><span className="social-contact__icon" aria-hidden="true">{typeof icon === "string" ? <img src={icon} alt="" /> : icon}</span><span>{label}</span></>;
-  if (href && !disabled) return <a className={`social-contact social-contact--${type}`} href={href}>{content}</a>;
+  if (href && !disabled) return <a className={`social-contact social-contact--${type}`} href={href} onClick={onClick}>{content}</a>;
   return <button className={`social-contact social-contact--${type}`} type="button" onClick={onClick} disabled={disabled} aria-label={disabled ? label : label}>{content}</button>;
 }
 
 function Footer({ go, onWechat }) {
-  return <footer className="footer"><div className="footer__top"><div><span>目的地</span><b>俄罗斯 · 摩尔曼斯克</b></div><div><span>中文咨询</span><b>157 5465 1899</b></div><button className="button button--accent" onClick={() => go("/custom")}>获取行程方案 <ArrowRight /></button></div><div className="compliance"><ShieldCheck /><div><b>服务与接待说明</b><p>Aurora Hunter 极光猎人提供俄罗斯北极圈旅行信息咨询服务。具体旅游产品、合同签署、收款及接待服务由合作的俄罗斯持牌旅行社提供。</p><small>本网站用于风景与行程信息展示，不提供在线交易。旅途中提供群内中文服务，具体安排以当地旅行社最终确认为准。</small></div></div><div className="footer__grid footer__grid--compact"><div><h4>探索</h4>{nav.slice(1, 5).map(([l, p]) => <button key={p} onClick={() => go(p)}>{l}</button>)}</div><div><h4>服务方式</h4><span>俄罗斯当地旅行社接待</span><span>群内中文服务</span><span>天气与道路弹性安排</span></div><div className="footer-contact"><h4>联系</h4><div className="social-contact-list"><SocialContact type="phone" label="电话" href="tel:15754651899" icon={<Phone weight="fill" />} /><SocialContact type="wechat" label="微信" onClick={onWechat} icon="/icons/wechat.svg" /><SocialContact type="redbook" label="小红书" disabled icon="/icons/xiaohongshu.svg" /><SocialContact type="weibo" label="微博" disabled icon="/icons/weibo.svg" /><SocialContact type="douyin" label="抖音" disabled icon="/icons/douyin.svg" /></div><button onClick={() => go("/custom")}>提交出行需求</button></div></div><div className="footer__bottom"><span>© 2026 AURORA HUNTER · 极光猎人</span><span>图片许可与署名见 CREDITS.md</span></div></footer>;
+  return <footer className="footer"><div className="footer__top"><div><span>目的地</span><b>俄罗斯 · 摩尔曼斯克</b></div><div><span>中文咨询</span><b>157 5465 1899</b></div><button className="button button--accent" onClick={() => { trackMarketingEvent("cta_click", { label: "footer_plan", category: "lead" }); go("/custom"); }}>获取行程方案 <ArrowRight /></button></div><div className="compliance"><ShieldCheck /><div><b>服务与接待说明</b><p>Aurora Hunter 极光猎人提供俄罗斯北极圈旅行信息咨询服务。具体旅游产品、合同签署、收款及接待服务由合作的俄罗斯持牌旅行社提供。</p><small>本网站用于风景与行程信息展示，不提供在线交易。旅途中提供群内中文服务，具体安排以当地旅行社最终确认为准。</small></div></div><div className="footer__grid footer__grid--compact"><div><h4>探索</h4>{nav.slice(1, 5).map(([l, p]) => <button key={p} onClick={() => go(p)}>{l}</button>)}</div><div><h4>服务方式</h4><span>俄罗斯当地旅行社接待</span><span>群内中文服务</span><span>天气与道路弹性安排</span></div><div className="footer-contact"><h4>联系</h4><div className="social-contact-list"><SocialContact type="phone" label="电话" href="tel:15754651899" onClick={() => trackMarketingEvent("phone_click", { label: "footer_phone", category: "lead" })} icon={<Phone weight="fill" />} /><SocialContact type="wechat" label="微信" onClick={onWechat} icon="/icons/wechat.svg" /><SocialContact type="redbook" label="小红书" disabled icon="/icons/xiaohongshu.svg" /><SocialContact type="weibo" label="微博" disabled icon="/icons/weibo.svg" /><SocialContact type="douyin" label="抖音" disabled icon="/icons/douyin.svg" /></div><button onClick={() => { trackMarketingEvent("cta_click", { label: "footer_submit_need", category: "lead" }); go("/custom"); }}>提交出行需求</button></div></div><div className="footer__bottom"><span>© 2026 AURORA HUNTER · 极光猎人</span><span>图片许可与署名见 CREDITS.md</span></div></footer>;
 }
 
 function PageHero({ kicker, title, text }) { return <section className="page-hero"><p className="kicker"><span /> {kicker}</p><h1>{title}</h1><p>{text}</p></section>; }
@@ -468,6 +474,7 @@ function CustomPage({ go }) {
       });
       setDone(true);
       setStatus("success");
+      trackMarketingEvent("generate_lead", { label: payload.interest || "custom_form", category: "lead", travelers: payload.travelers });
       form.reset();
     } catch (error) {
       setStatus("error");
@@ -509,6 +516,7 @@ const seoPages = {
 export function App() {
   const [path, go] = useRoute();
   const [wechat, setWechat] = useState(false);
+  useEffect(() => { initMarketing(); }, []);
   useEffect(() => {
     const [title, description] = seoPages[path] || (path.startsWith("/guide/") || path.startsWith("/guide-topic/") ? ["摩尔曼斯克极光旅行攻略 | Aurora Hunter极光猎人", "阅读摩尔曼斯克极光旅游、俄罗斯极光、北极圈旅行、装备、摄影、亲子与服务流程相关攻略。"] : seoPages["/"]);
     document.title = title;
@@ -519,7 +527,7 @@ export function App() {
       document.head.appendChild(meta);
     }
     meta.setAttribute("content", description);
-    const canonicalUrl = new URL(path === "/" ? "/" : path, "https://aurorahunterarctic.com").href;
+    const canonicalUrl = new URL(canonicalPath(path), "https://aurorahunterarctic.com").href;
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement("link");
@@ -536,7 +544,12 @@ export function App() {
       }
       tag.setAttribute("content", content);
     });
+    trackPageView(path);
   }, [path]);
+  const openWechat = () => {
+    trackMarketingEvent("wechat_open", { label: "wechat_panel", category: "lead" });
+    setWechat(true);
+  };
   const content = useMemo(() => {
     if (path === "/") return <HomePage go={go} />;
     if (path === "/tours") return <ToursPage go={go} />;
@@ -550,5 +563,5 @@ export function App() {
     if (path === "/about") return <AboutPage go={go} />;
     return <HomePage go={go} />;
   }, [path]);
-  return <div className="site-shell"><Header go={go} onWechat={() => setWechat(true)} /><main>{content}</main><Footer go={go} onWechat={() => setWechat(true)} /><button className="floating-wechat" onClick={() => setWechat(true)} aria-label="打开微信咨询"><WechatLogo weight="fill" /></button>{wechat && <WechatPanel onClose={() => setWechat(false)} />}</div>;
+  return <div className="site-shell"><Header go={go} onWechat={openWechat} /><main>{content}</main><Footer go={go} onWechat={openWechat} /><button className="floating-wechat" onClick={openWechat} aria-label="打开微信咨询"><WechatLogo weight="fill" /></button>{wechat && <WechatPanel onClose={() => setWechat(false)} />}</div>;
 }

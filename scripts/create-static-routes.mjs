@@ -90,7 +90,7 @@ function escapeHtml(value) {
 }
 
 function absoluteUrl(route) {
-  return `${siteUrl}${route === "/" ? "/" : route}`;
+  return `${siteUrl}${route === "/" ? "/" : `${route}/`}`;
 }
 
 function seoHead(route) {
