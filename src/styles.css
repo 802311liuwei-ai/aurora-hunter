@@ -429,8 +429,9 @@ textarea { min-height: 140px; resize: vertical; }
 .footer__grid--compact { grid-template-columns: repeat(3, 1fr); }
 
 .section-note { max-width: 410px; color: var(--muted); line-height: 1.8; margin: 0 0 6px; }
-#journeys, #scenery, #food, #notes, #service, #inquiry { scroll-margin-top: 86px; }
+#journeys, #summer-guide, #scenery, #food, #notes, #service, #inquiry { scroll-margin-top: 86px; }
 .home-itineraries { display: grid; gap: 42px; }
+.summer-guide { padding-top: 28px; }
 .home-itinerary { display: grid; grid-template-columns: .82fr 1.18fr; background: white; min-height: 650px; }
 .home-itinerary:nth-child(even) { grid-template-columns: 1.18fr .82fr; }
 .home-itinerary:nth-child(even) .home-itinerary__visual { order: 2; }

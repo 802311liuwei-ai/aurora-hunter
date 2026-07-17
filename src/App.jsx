@@ -85,6 +85,23 @@ const journeys = [
   },
 ];
 
+const summerHomeJourney = {
+  id: "summer-arctic-wishlist",
+  title: "夏季北极心动清单",
+  eyebrow: "夏季精选 · 4天3晚",
+  image: "/images/teriberka-coast.png",
+  season: "6月至9月",
+  focus: "巴伦支海追鲸、赛多泽圣湖与希比内UAZ越野",
+  tags: ["巴伦支海追鲸", "龙蛋海滩", "赛多泽圣湖", "希比内山脉"],
+  intro: "用4天串起摩尔曼斯克、捷里别尔卡、赛多泽湖与希比内山脉，把夏季科拉半岛的海岸、山湖和极昼装进旅程。",
+  days: [
+    ["第1天", "初见北极圈首府", "抵达摩尔曼斯克后接机入住，下午游览海港、列宁号破冰船外观和城市地标，傍晚自由体验北极风味。"],
+    ["第2天", "捷里别尔卡 · 巴伦支海追鲸", "穿越苔原前往北冰洋海岸，探访旧渔村、龙蛋海滩与瀑布。天气和海况合适时安排出海观察鲸类与海鸟。"],
+    ["第3天", "赛多泽圣湖 · 萨米传说", "前往洛沃泽罗地区，乘船进入山湖地带，探访萨米人心中的神圣湖泊。若天气不适合，将调整为苔原山口观景路线。"],
+    ["第4天", "希比内山脉 · UAZ越野", "前往基洛夫斯克，换乘UAZ越野车进入希比内山谷，轻徒步观赏瀑布、高山湖与矿物山脉，傍晚返回市区。"],
+  ],
+};
+
 const guides = [
   {
     id: "winter-checklist", title: "摩尔曼斯克冬季追光旅行完整清单", read: "18分钟", image: "/images/reindeer-winter.png",
@@ -425,6 +442,7 @@ function HomePage({ go }) {
       <div className="hero__facts"><div><b>3晚+</b><span>建议追光停留</span></div><div><b>四季</b><span>北境风景</span></div><div><b>中文</b><span>群内沟通服务</span></div></div>
     </section>
     <section className="section wrap" id="journeys"><div className="section-heading"><div><p className="kicker kicker--dark"><span /> 完整行程</p><h2>不是单独景点，<br />是一段完整北境旅程</h2></div><p className="section-note">以下为冬季核心线路参考，具体顺序由当地旅行社结合天气、道路和活动开放情况安排。</p></div><div className="home-itineraries">{journeys.slice(0, 2).map((journey, index) => <HomeItinerary key={journey.id} journey={journey} index={index} go={go} />)}</div></section>
+    <section className="section wrap summer-guide" id="summer-guide"><div className="section-heading"><div><p className="kicker kicker--dark"><span /> 夏季旅行攻略</p><h2>夏季科拉半岛，<br />追鲸、山湖与极昼</h2></div><p className="section-note">以下为夏季4天3晚参考行程。出海、越野和徒步会根据天气、海况、道路与当地安全判断调整；鲸类为野生动物，无法保证出现。</p></div><div className="home-itineraries"><HomeItinerary journey={summerHomeJourney} index={0} go={go} /></div></section>
   </>;
 }
 
