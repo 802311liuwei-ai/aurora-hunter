@@ -98,6 +98,28 @@ img { display: block; max-width: 100%; }
 .tour-card__bottom b { font-size: 24px; }
 .tour-card__bottom button { width: 42px; height: 42px; border: 0; border-radius: 50%; background: var(--night); color: white; display: grid; place-items: center; }
 
+.trip-carousel { background: #202724; color: white; min-height: 760px; display: grid; grid-template-columns: minmax(320px, 30vw) 1fr; gap: 44px; padding: 78px 0 86px max(24px, calc((100% - 1180px)/2)); overflow: hidden; position: relative; }
+.trip-carousel__intro { align-self: center; padding-right: 26px; min-width: 0; }
+.trip-carousel__intro .kicker { color: rgba(255,255,255,.68); }
+.trip-carousel__intro h2 { margin: 24px 0 26px; font-family: "Songti SC", serif; font-size: clamp(54px, 5.5vw, 86px); line-height: 1.04; letter-spacing: -.045em; }
+.trip-carousel__intro > p { margin: 0 0 16px; max-width: 330px; color: rgba(255,255,255,.72); font-family: Georgia, serif; font-style: italic; font-size: 20px; line-height: 1.7; }
+.trip-carousel__intro small { color: rgba(255,255,255,.58); font-size: 18px; line-height: 1.6; }
+.trip-carousel__stage { position: relative; min-width: 0; }
+.trip-carousel__rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(340px, 390px); gap: 30px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; padding: 0 max(30px, calc((100vw - 1180px)/2)) 18px 0; scrollbar-width: none; }
+.trip-carousel__rail::-webkit-scrollbar { display: none; }
+.trip-slide { height: 610px; background: #f5f0e8; color: white; position: relative; overflow: hidden; scroll-snap-align: start; box-shadow: 0 24px 80px rgba(0,0,0,.20); }
+.trip-slide img { width: 100%; height: 100%; object-fit: cover; background: #d4d8d1; transition: transform .7s ease; }
+.trip-slide:hover img { transform: scale(1.025); }
+.trip-slide__copy { position: absolute; z-index: 1; left: 28px; right: 28px; bottom: 34px; min-height: 146px; display: grid; grid-template-rows: 16px 68px 24px; align-items: center; justify-items: center; text-align: center; text-shadow: 0 2px 14px rgba(0,0,0,.48), 0 0 3px rgba(0,0,0,.46); }
+.trip-slide__copy b { color: rgba(255,255,255,.82); letter-spacing: .2em; text-transform: uppercase; font-size: 10px; line-height: 1; }
+.trip-slide__copy h3 { margin: 0; padding-left: .2em; font-family: "Songti SC", serif; font-size: 45px; font-weight: 400; line-height: 1; letter-spacing: .2em; white-space: nowrap; }
+.trip-slide__copy p { margin: 0; color: rgba(255,255,255,.88); display: inline-flex; align-items: center; justify-content: center; gap: 16px; font-family: "Songti SC", serif; font-size: 22px; line-height: 1; letter-spacing: .24em; white-space: nowrap; }
+.trip-slide__copy p span { width: 42px; height: 1px; background: rgba(255,255,255,.74); box-shadow: 0 1px 8px rgba(0,0,0,.28); }
+.trip-carousel__arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 64px; height: 64px; border: 0; border-radius: 50%; background: rgba(255,255,255,.88); color: var(--night); display: grid; place-items: center; box-shadow: 0 14px 38px rgba(0,0,0,.23); z-index: 3; }
+.trip-carousel__arrow svg { width: 25px; height: 25px; }
+.trip-carousel__arrow--prev { left: -32px; }
+.trip-carousel__arrow--next { right: 22px; }
+
 .story-section { background: var(--night); color: white; display: grid; grid-template-columns: 1.07fr .93fr; min-height: 700px; }
 .story-section__image { position: relative; overflow: hidden; }
 .story-section__image img { width: 100%; height: 100%; object-fit: cover; }
@@ -517,6 +539,10 @@ textarea { min-height: 140px; resize: vertical; }
 .order-combo p { margin: 0; color: rgba(237,249,250,.72); line-height: 1.85; }
 
 @media (max-width: 1080px) {
+  .trip-carousel { grid-template-columns: 1fr; padding: 72px 0 78px 24px; gap: 34px; }
+  .trip-carousel__intro { padding-right: 24px; }
+  .trip-carousel__intro h2 { max-width: 680px; }
+  .trip-carousel__rail { grid-auto-columns: minmax(320px, 42vw); }
   .notes-grid--home { grid-template-columns: 1fr 1fr; }
   .notes-grid--home article:nth-child(2) { border-right: 0; }
   .footer__grid--compact { grid-template-columns: repeat(3,1fr); }
@@ -532,6 +558,19 @@ textarea { min-height: 140px; resize: vertical; }
   .home-itinerary__visual { min-height: 380px; }
   .home-itinerary__content { padding: 38px 24px 45px; }
   .home-itinerary__content > h3 { font-size: 31px; }
+  .trip-carousel { min-height: 0; padding: 58px 0 62px 20px; }
+  .trip-carousel__intro h2 { font-size: 46px; }
+  .trip-carousel__intro > p { font-size: 17px; }
+  .trip-carousel__intro small { font-size: 15px; }
+  .trip-carousel__rail { grid-auto-columns: minmax(282px, 78vw); gap: 18px; padding-right: 20px; }
+  .trip-slide { height: 520px; }
+  .trip-slide__copy { left: 18px; right: 18px; bottom: 24px; min-height: 122px; grid-template-rows: 14px 56px 22px; }
+  .trip-slide__copy h3 { font-size: 34px; letter-spacing: .16em; padding-left: .16em; }
+  .trip-slide__copy p { gap: 10px; font-size: 18px; letter-spacing: .18em; }
+  .trip-slide__copy p span { width: 28px; }
+  .trip-carousel__arrow { width: 48px; height: 48px; }
+  .trip-carousel__arrow--prev { left: 8px; }
+  .trip-carousel__arrow--next { right: 12px; }
   .notes-grid--home { grid-template-columns: 1fr; }
   .notes-grid--home article, .notes-grid--home article:not(:first-child) { padding: 28px 0; min-height: 260px; }
   .scenery-intro { grid-template-columns: 1fr; gap: 24px; }

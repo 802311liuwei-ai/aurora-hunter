@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowLeft, ArrowRight, CalendarBlank, Camera, Check, Clock, Compass,
   List, MapPin, Phone, ShieldCheck, Snowflake, Users, WechatLogo, X,
@@ -101,6 +101,27 @@ const summerHomeJourney = {
     ["第4天", "希比内山脉 · UAZ越野", "前往基洛夫斯克，换乘UAZ越野车进入希比内山谷，轻徒步观赏瀑布、高山湖与矿物山脉，傍晚返回市区。"],
   ],
 };
+
+const tripCarousel = [
+  { image: "/images/trip-carousel/card-14.jpg", cn: "天光将至" },
+  { image: "/images/trip-carousel/card-17.jpg", cn: "深蓝召唤" },
+  { image: "/images/trip-carousel/card-02.jpg", cn: "漂向北境" },
+  { image: "/images/trip-carousel/card-18.jpg", cn: "遇见极北" },
+  { image: "/images/trip-carousel/card-03.jpg", cn: "远山入怀" },
+  { image: "/images/trip-carousel/card-09.jpg", cn: "抵达极地" },
+  { image: "/images/trip-carousel/card-08.jpg", cn: "天空流动" },
+  { image: "/images/trip-carousel/card-05.jpg", cn: "随风出发" },
+  { image: "/images/trip-carousel/card-11.jpg", cn: "雪原无声" },
+  { image: "/images/trip-carousel/card-04.jpg", cn: "世界尽头" },
+  { image: "/images/trip-carousel/card-10.jpg", cn: "鲜活北方" },
+  { image: "/images/trip-carousel/card-06.jpg", cn: "沉入深蓝" },
+  { image: "/images/trip-carousel/card-16.jpg", cn: "绿色梦境" },
+  { image: "/images/trip-carousel/card-12.jpg", cn: "荒野醒来" },
+  { image: "/images/trip-carousel/card-13.jpg", cn: "雪的故事" },
+  { image: "/images/trip-carousel/card-01.jpg", cn: "勇敢入冰" },
+  { image: "/images/trip-carousel/card-07.jpg", cn: "天空盛开" },
+  { image: "/images/trip-carousel/card-15.jpg", cn: "绿河之夜" },
+];
 
 const guides = [
   {
@@ -433,6 +454,14 @@ function InquiryStrip({ go }) {
   return <div className="booking-strip inquiry-strip"><label><span>旅行季节</span><b><CalendarBlank /> 冬季追光 / 夏季极昼</b></label><label><span>服务语言</span><b><WechatLogo /> 群内中文服务</b></label><label><span>当地接待</span><b><ShieldCheck /> 俄罗斯持牌旅行社</b></label><button className="button button--accent" onClick={() => go("/custom")}>获取行程方案 <ArrowRight /></button></div>;
 }
 
+function TripCarousel({ go }) {
+  const railRef = useRef(null);
+  const scrollTrips = (direction) => {
+    railRef.current?.scrollBy({ left: direction * 430, behavior: "smooth" });
+  };
+  return <section className="trip-carousel" id="trip-carousel"><div className="trip-carousel__intro"><p className="kicker"><span /> Explore Our Trips</p><h2>探索我们的<br />北境旅行</h2><p>Remarkable experiences to inspire the mind</p><small>激励心灵的非凡经历</small></div><div className="trip-carousel__stage"><div className="trip-carousel__rail" ref={railRef}>{tripCarousel.map((trip) => <article className="trip-slide" key={trip.image}><img src={trip.image} alt={`Aurora Hunter ${trip.cn}`} loading="lazy" /><div className="trip-slide__copy"><b>AURORA HUNTER</b><h3>{trip.cn}</h3><p><span />遇见极北<span /></p></div></article>)}</div><button className="trip-carousel__arrow trip-carousel__arrow--prev" onClick={() => scrollTrips(-1)} aria-label="查看上一组旅行"><ArrowLeft /></button><button className="trip-carousel__arrow trip-carousel__arrow--next" onClick={() => scrollTrips(1)} aria-label="查看下一组旅行"><ArrowRight /></button></div></section>;
+}
+
 function HomePage({ go }) {
   return <>
     <section className="hero hero--animated" id="top">
@@ -441,6 +470,7 @@ function HomePage({ go }) {
       <div className="hero__content"><p className="kicker"><span /> 北纬69° · 摩尔曼斯克</p><h1>去世界尽头，<br />等一场<span>极光</span>。</h1><p className="hero__intro">面向中国游客的摩尔曼斯克极光旅游信息、俄罗斯极光线路说明与群内中文服务。了解北极光旅游、摩尔曼斯克追极光、北极圈风景与冬季装备，再从容出发。</p><div className="hero__buttons"><button className="button button--accent" onClick={() => go("/#journeys")}>查看完整行程 <ArrowRight /></button><button className="text-button" onClick={() => go("/experiences")}><Compass /> 北境风景与美食</button></div></div>
       <div className="hero__facts"><div><b>3晚+</b><span>建议追光停留</span></div><div><b>四季</b><span>北境风景</span></div><div><b>中文</b><span>群内沟通服务</span></div></div>
     </section>
+    <TripCarousel go={go} />
     <section className="section wrap" id="journeys"><div className="section-heading"><div><p className="kicker kicker--dark"><span /> 完整行程</p><h2>不是单独景点，<br />是一段完整北境旅程</h2></div><p className="section-note">以下为冬季核心线路参考，具体顺序由当地旅行社结合天气、道路和活动开放情况安排。</p></div><div className="home-itineraries">{journeys.slice(0, 2).map((journey, index) => <HomeItinerary key={journey.id} journey={journey} index={index} go={go} />)}</div></section>
     <section className="section wrap summer-guide" id="summer-guide"><div className="section-heading"><div><p className="kicker kicker--dark"><span /> 夏季旅行攻略</p><h2>夏季科拉半岛，<br />追鲸、山湖与极昼</h2></div><p className="section-note">以下为夏季4天3晚参考行程。出海、越野和徒步会根据天气、海况、道路与当地安全判断调整；鲸类为野生动物，无法保证出现。</p></div><div className="home-itineraries"><HomeItinerary journey={summerHomeJourney} index={0} go={go} /></div></section>
   </>;
