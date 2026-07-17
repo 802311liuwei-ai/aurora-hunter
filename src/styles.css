@@ -167,18 +167,25 @@ img { display: block; max-width: 100%; }
 .floating-wechat { position: fixed; z-index: 30; right: 28px; bottom: 28px; width: 58px; height: 58px; border-radius: 50%; border: 5px solid rgba(255,255,255,.5); background: var(--aurora); color: var(--night); display: grid; place-items: center; box-shadow: 0 12px 32px rgba(0,0,0,.25); }
 .floating-wechat svg { width: 26px; height: 26px; }
 .wechat-panel,
+.redbook-panel,
 .douyin-panel { position: fixed; z-index: 90; right: 28px; bottom: 96px; width: 320px; background: white; color: var(--ink); padding: 28px; box-shadow: 0 20px 80px rgba(0,0,0,.25); display: grid; justify-items: center; text-align: center; }
 .wechat-panel > button,
+.redbook-panel > button,
 .douyin-panel > button { justify-self: end; background: none; border: 0; }
 .wechat-panel__qr,
 .douyin-panel__qr { width: 240px; max-width: 100%; height: auto; object-fit: contain; border: 8px solid #f3f4f1; }
+.redbook-panel__card { width: 240px; max-width: 100%; height: auto; object-fit: contain; border: 8px solid #fff0f2; }
 .douyin-panel__qr { border-color: #111; }
 .wechat-panel h3,
+.redbook-panel h3,
 .douyin-panel h3 { margin: 16px 0 6px; font-family: "Songti SC", serif; }
 .wechat-panel p,
+.redbook-panel p,
 .douyin-panel p { color: var(--muted); margin: 0 0 14px; }
+.redbook-panel .button,
 .douyin-panel .button { margin: 4px 0 2px; }
 .wechat-panel small,
+.redbook-panel small,
 .douyin-panel small { color: #8b989b; margin-top: 14px; line-height: 1.6; }
 
 .page-hero { background: var(--night); color: white; padding: 110px max(24px, calc((100% - 1180px)/2)) 90px; }
@@ -655,6 +662,12 @@ textarea { min-height: 140px; resize: vertical; }
   .guide-article { grid-template-columns: 1fr; gap: 35px; padding-top: 55px; }
   .guide-article main > section { grid-template-columns: 38px 1fr; }
   .guide-article aside { position: relative; top: auto; }
+  .wechat-panel,
+  .redbook-panel,
+  .douyin-panel { left: 18px; right: 18px; bottom: 86px; width: auto; max-height: calc(100vh - 112px); overflow: auto; padding: 22px; }
+  .wechat-panel__qr,
+  .douyin-panel__qr,
+  .redbook-panel__card { width: min(250px, 100%); }
   .timeline > div { grid-template-columns: 60px 18px 1fr; min-height: 205px; }
   .timeline > div > span::after { height: 195px; }
 }

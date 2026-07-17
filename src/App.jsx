@@ -444,8 +444,8 @@ function SocialContact({ type, label, href, icon, onClick, disabled = false, tar
   return <button className={`social-contact social-contact--${type}`} type="button" onClick={onClick} disabled={disabled} aria-label={disabled ? label : label}>{content}</button>;
 }
 
-function Footer({ go, onWechat, onDouyin }) {
-  return <footer className="footer"><div className="footer__top"><div><span>目的地</span><b>俄罗斯 · 摩尔曼斯克</b></div><div><span>中文咨询</span><b>{contactPhoneDisplay}</b></div><button className="button button--accent" onClick={() => { trackMarketingEvent("cta_click", { label: "footer_plan", category: "lead" }); go("/custom"); }}>获取行程方案 <ArrowRight /></button></div><div className="compliance"><ShieldCheck /><div><b>服务与接待说明</b><p>Aurora Hunter 极光猎人提供俄罗斯北极圈旅行信息咨询服务。具体旅游产品、合同签署、收款及接待服务由合作的俄罗斯持牌旅行社提供。</p><small>本网站用于风景与行程信息展示，不提供在线交易。旅途中提供群内中文服务，具体安排以当地旅行社最终确认为准。</small></div></div><div className="footer__grid footer__grid--compact"><div><h4>探索</h4>{nav.slice(1, 5).map(([l, p]) => <button key={p} onClick={() => go(p)}>{l}</button>)}</div><div><h4>服务方式</h4><span>俄罗斯当地旅行社接待</span><span>群内中文服务</span><span>天气与道路弹性安排</span></div><div className="footer-contact"><h4>联系</h4><div className="social-contact-list"><SocialContact type="phone" label="电话" href={`tel:${contactPhone}`} onClick={() => trackMarketingEvent("phone_click", { label: "footer_phone", category: "lead" })} icon={<Phone weight="fill" />} /><SocialContact type="wechat" label="微信" onClick={onWechat} icon="/icons/wechat.svg" /><SocialContact type="redbook" label="小红书" href={socialLinks.xiaohongshu} target="_blank" onClick={() => trackMarketingEvent("social_click", { label: "xiaohongshu", category: "lead" })} icon="/icons/xiaohongshu.svg" /><SocialContact type="weibo" label="微博" href={socialLinks.weibo} target="_blank" onClick={() => trackMarketingEvent("social_click", { label: "weibo", category: "lead" })} icon="/icons/weibo.svg" /><SocialContact type="douyin" label="抖音" onClick={onDouyin} icon="/icons/douyin.svg" /></div><button onClick={() => { trackMarketingEvent("cta_click", { label: "footer_submit_need", category: "lead" }); go("/custom"); }}>提交出行需求</button></div></div><div className="footer__bottom"><span>© 2026 AURORA HUNTER · 极光猎人</span><span>图片许可与署名见 CREDITS.md</span></div></footer>;
+function Footer({ go, onWechat, onRedbook, onDouyin }) {
+  return <footer className="footer"><div className="footer__top"><div><span>目的地</span><b>俄罗斯 · 摩尔曼斯克</b></div><div><span>中文咨询</span><b>{contactPhoneDisplay}</b></div><button className="button button--accent" onClick={() => { trackMarketingEvent("cta_click", { label: "footer_plan", category: "lead" }); go("/custom"); }}>获取行程方案 <ArrowRight /></button></div><div className="compliance"><ShieldCheck /><div><b>服务与接待说明</b><p>Aurora Hunter 极光猎人提供俄罗斯北极圈旅行信息咨询服务。具体旅游产品、合同签署、收款及接待服务由合作的俄罗斯持牌旅行社提供。</p><small>本网站用于风景与行程信息展示，不提供在线交易。旅途中提供群内中文服务，具体安排以当地旅行社最终确认为准。</small></div></div><div className="footer__grid footer__grid--compact"><div><h4>探索</h4>{nav.slice(1, 5).map(([l, p]) => <button key={p} onClick={() => go(p)}>{l}</button>)}</div><div><h4>服务方式</h4><span>俄罗斯当地旅行社接待</span><span>群内中文服务</span><span>天气与道路弹性安排</span></div><div className="footer-contact"><h4>联系</h4><div className="social-contact-list"><SocialContact type="phone" label="电话" href={`tel:${contactPhone}`} onClick={() => trackMarketingEvent("phone_click", { label: "footer_phone", category: "lead" })} icon={<Phone weight="fill" />} /><SocialContact type="wechat" label="微信" onClick={onWechat} icon="/icons/wechat.svg" /><SocialContact type="redbook" label="小红书" onClick={onRedbook} icon="/icons/xiaohongshu.svg" /><SocialContact type="weibo" label="微博" href={socialLinks.weibo} target="_blank" onClick={() => trackMarketingEvent("social_click", { label: "weibo", category: "lead" })} icon="/icons/weibo.svg" /><SocialContact type="douyin" label="抖音" onClick={onDouyin} icon="/icons/douyin.svg" /></div><button onClick={() => { trackMarketingEvent("cta_click", { label: "footer_submit_need", category: "lead" }); go("/custom"); }}>提交出行需求</button></div></div><div className="footer__bottom"><span>© 2026 AURORA HUNTER · 极光猎人</span><span>图片许可与署名见 CREDITS.md</span></div></footer>;
 }
 
 function PageHero({ kicker, title, text }) { return <section className="page-hero"><p className="kicker"><span /> {kicker}</p><h1>{title}</h1><p>{text}</p></section>; }
@@ -562,6 +562,8 @@ function AboutPage({ go }) {
 
 function WechatPanel({ onClose }) { return <div className="wechat-panel"><button onClick={onClose} aria-label="关闭微信二维码"><X /></button><img className="wechat-panel__qr" src="/images/wechat-vika-qr.jpg" alt="极光猎人 Vika 微信二维码" /><h3>极光猎人 Vika</h3><p>俄罗斯 · 摩尔曼斯克</p><b>电话：{contactPhoneDisplay}</b><small>扫码添加微信，或在微信中搜索手机号 {contactPhone}</small></div>; }
 
+function RedbookPanel({ onClose }) { return <div className="redbook-panel"><button onClick={onClose} aria-label="关闭小红书名片"><X /></button><img className="redbook-panel__card" src="/images/xiaohongshu-vika-card.jpg" alt="极光猎人 Vika 小红书名片" /><h3>极光猎人 Vika</h3><p>小红书号：Aurora_Hunter</p><b>在小红书搜索 Aurora_Hunter</b><small>手机端可保存图片后，在小红书扫一扫识别二维码。</small></div>; }
+
 function DouyinPanel({ onClose }) { return <div className="douyin-panel"><button onClick={onClose} aria-label="关闭抖音二维码"><X /></button><img className="douyin-panel__qr" src="/images/douyin-vika-qr.jpg" alt="极光猎人 Vika 抖音二维码" /><h3>@ 极光猎人 Vika</h3><p>抖音号：Aurora_Hunter</p><a className="button button--dark" href={socialLinks.douyin} target="_blank" rel="noreferrer" onClick={() => trackMarketingEvent("social_click", { label: "douyin_search", category: "lead" })}>打开抖音搜索</a><small>手机端可保存图片后，在抖音扫一扫识别二维码。</small></div>; }
 
 const seoPages = {
@@ -576,6 +578,7 @@ const seoPages = {
 export function App() {
   const [path, go] = useRoute();
   const [wechat, setWechat] = useState(false);
+  const [redbook, setRedbook] = useState(false);
   const [douyin, setDouyin] = useState(false);
   useEffect(() => { initMarketing(); }, []);
   useEffect(() => {
@@ -611,6 +614,10 @@ export function App() {
     trackMarketingEvent("wechat_open", { label: "wechat_panel", category: "lead" });
     setWechat(true);
   };
+  const openRedbook = () => {
+    trackMarketingEvent("xiaohongshu_open", { label: "redbook_panel", category: "lead" });
+    setRedbook(true);
+  };
   const openDouyin = () => {
     trackMarketingEvent("douyin_open", { label: "douyin_panel", category: "lead" });
     setDouyin(true);
@@ -628,5 +635,5 @@ export function App() {
     if (path === "/about") return <AboutPage go={go} />;
     return <HomePage go={go} />;
   }, [path]);
-  return <div className="site-shell"><Header go={go} onWechat={openWechat} /><main>{content}</main><Footer go={go} onWechat={openWechat} onDouyin={openDouyin} /><button className="floating-wechat" onClick={openWechat} aria-label="打开微信咨询"><WechatLogo weight="fill" /></button>{wechat && <WechatPanel onClose={() => setWechat(false)} />}{douyin && <DouyinPanel onClose={() => setDouyin(false)} />}</div>;
+  return <div className="site-shell"><Header go={go} onWechat={openWechat} /><main>{content}</main><Footer go={go} onWechat={openWechat} onRedbook={openRedbook} onDouyin={openDouyin} /><button className="floating-wechat" onClick={openWechat} aria-label="打开微信咨询"><WechatLogo weight="fill" /></button>{wechat && <WechatPanel onClose={() => setWechat(false)} />}{redbook && <RedbookPanel onClose={() => setRedbook(false)} />}{douyin && <DouyinPanel onClose={() => setDouyin(false)} />}</div>;
 }
