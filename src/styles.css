@@ -558,11 +558,12 @@ textarea { min-height: 140px; resize: vertical; }
   .home-itinerary__visual { min-height: 380px; }
   .home-itinerary__content { padding: 38px 24px 45px; }
   .home-itinerary__content > h3 { font-size: 31px; }
-  .trip-carousel { min-height: 0; padding: 58px 0 62px 20px; }
+  .trip-carousel { min-height: 0; padding: 58px 18px 62px; }
+  .trip-carousel__stage { width: 100%; overflow: hidden; }
   .trip-carousel__intro h2 { font-size: 46px; }
   .trip-carousel__intro > p { font-size: 17px; }
   .trip-carousel__intro small { font-size: 15px; }
-  .trip-carousel__rail { grid-auto-columns: minmax(282px, 78vw); gap: 18px; padding-right: 20px; }
+  .trip-carousel__rail { grid-auto-columns: 100%; gap: 0; padding: 0; }
   .trip-slide { height: 520px; }
   .trip-slide__copy { left: 18px; right: 18px; bottom: 24px; min-height: 122px; grid-template-rows: 14px 56px 22px; }
   .trip-slide__copy h3 { font-size: 34px; letter-spacing: .16em; padding-left: .16em; }
