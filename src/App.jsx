@@ -460,7 +460,11 @@ function TripCarousel({ go }) {
     if (!railRef.current) return;
     const slide = railRef.current.querySelector(".trip-slide");
     const distance = slide?.getBoundingClientRect().width || railRef.current.clientWidth;
-    railRef.current.scrollBy({ left: direction * distance, behavior: "smooth" });
+    const current = Math.round(railRef.current.scrollLeft / distance);
+    const total = tripCarousel.length;
+    const next = (current + direction + total) % total;
+    const wraps = (direction > 0 && current === total - 1) || (direction < 0 && current === 0);
+    railRef.current.scrollTo({ left: next * distance, behavior: wraps ? "auto" : "smooth" });
   };
   return <section className="trip-carousel" id="trip-carousel"><div className="trip-carousel__intro"><p className="kicker"><span /> Explore Our Trips</p><h2>探索我们的<br />北境旅行</h2><p>Remarkable experiences to inspire the mind</p><small>激励心灵的非凡经历</small></div><div className="trip-carousel__stage"><div className="trip-carousel__rail" ref={railRef}>{tripCarousel.map((trip) => <article className="trip-slide" key={trip.image}><img src={trip.image} alt={`Aurora Hunter ${trip.cn}`} loading="lazy" /><div className="trip-slide__copy"><b>AURORA HUNTER</b><h3>{trip.cn}</h3><p><span />遇见极北<span /></p></div></article>)}</div><button className="trip-carousel__arrow trip-carousel__arrow--prev" onClick={() => scrollTrips(-1)} aria-label="查看上一组旅行"><ArrowLeft /></button><button className="trip-carousel__arrow trip-carousel__arrow--next" onClick={() => scrollTrips(1)} aria-label="查看下一组旅行"><ArrowRight /></button></div></section>;
 }
