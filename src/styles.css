@@ -262,7 +262,6 @@ textarea { min-height: 140px; resize: vertical; }
 .guide-module-card li { color: #526267; background: #f4f5f1; border-radius: 999px; padding: 8px 10px; font-size: 12px; }
 .guide-module-card em { color: var(--ink); font-style: normal; margin-top: 18px; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
 .guide-module-card em svg { width: 16px; height: 16px; }
-.guide-module-head--articles { margin-top: 88px; }
 .faq-bank { margin-top: 90px; background: var(--night); color: white; padding: 58px; display: grid; grid-template-columns: .72fr 1.28fr; gap: 44px; position: relative; overflow: hidden; }
 .faq-bank::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 15% 20%, rgba(185,242,74,.16), transparent 32%), radial-gradient(circle at 90% 0%, rgba(76,255,225,.14), transparent 28%); pointer-events: none; }
 .faq-bank > * { position: relative; z-index: 1; }

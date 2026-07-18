@@ -217,7 +217,72 @@ const guides = [
       ["旅途中", ["当地旅行社负责车辆、向导、活动安排与现场接待。", "Aurora Hunter 提供群内中文服务，协助信息转达和日常沟通；突发情况以当地安全机构及接待方指令为准。"]],
     ],
   },
+  {
+    id: "aurora-calendar", title: "摩尔曼斯克极光季节日历", read: "9分钟", image: "/images/hero-aurora.png",
+    label: "逐月追光", topics: ["9月至次年4月", "极夜与雪景", "月份体感", "停留晚数"],
+    intro: "从9月到次年4月逐月看黑夜、雪景、体感和适合玩法。月份决定旅行氛围，云量与连续停留晚数才真正影响当晚能否看到极光。",
+    sections: [
+      ["先看结论", ["摩尔曼斯克常见追光季为9月至次年4月上旬；更稳妥的核心规划窗口通常是9月下旬至3月底。", "想拍秋色与水面倒影，可关注9月下旬至10月；想要极夜和厚雪氛围，可选12月至2月；想兼顾白天活动与夜间追光，3月通常更均衡。", "极光是自然现象，任何月份都不能保证出现。建议至少连续停留3晚，把单晚云层和风雪风险分散开。"]],
+      ["9月｜追光季开启", ["黑夜重新回到北极圈，通常从中下旬开始更适合安排追光。苔原仍可能保留秋色，部分湖面尚未封冻，有机会拍到水面倒影。", "优势是体感相对温和；变量是雨、云和秋季天气转换。行李仍需准备防风防水外层。"]],
+      ["10月｜秋冬交界", ["夜间明显变长，追光窗口增加；地面可能在秋色、薄雪和初冬之间快速切换。", "适合不想承受深冬极寒、又希望拥有较长黑夜的游客，但路面结冰与风雪变化需要留意。"]],
+      ["11月｜雪原开始成形", ["积雪通常逐渐稳定，夜长进一步增加，画面开始接近典型北境冬季。", "天气可能多云并伴随降雪，白天活动时间缩短；路线应保留机动性，不把所有期待放在单晚。"]],
+      ["12月｜极夜氛围最浓", ["接近极夜阶段，白昼非常短，蓝调时刻与城市灯光很有北境感。", "适合追求圣诞、新年和深冬氛围的游客。热门日期房价和车辆需求较高，应更早确认；低温、风雪与道路调整概率也更高。"]],
+      ["1月｜长夜与严寒", ["长时间黑暗为追光提供更多时间窗口，厚雪景观通常较稳定。", "这往往是体感最严酷的阶段之一。鞋、手套和电池保暖会直接决定体验，亲子与长者需要谨慎评估夜间作息。"]],
+      ["2月｜雪景稳定，白昼回归", ["雪原仍然完整，白天逐渐变长，夜间仍有充分追光条件。", "适合把极光、捷里别尔卡、萨米文化和雪地项目放进同一段旅程，是冬季综合体验较均衡的月份。"]],
+      ["3月｜追光与白天活动兼顾", ["夜间仍然足够黑，白天更长，通常更方便安排海岸、城市和雪地活动。", "对第一次来北极圈、又不想完全处于极夜节奏的游客，3月往往是舒适度较高的选择。"]],
+      ["4月｜季末窗口", ["4月上旬仍可能具备追光条件，但夜晚迅速缩短，越往后可用黑暗时段越少。", "如果目标以极光为主，不建议把日期压到季末；具体是否执行追光，应以当年天文黑暗、天气和当地团队判断为准。"]],
+      ["5月至8月｜不是追光季", ["北极圈进入极昼或长日照阶段，天空不够暗，通常不把极光作为旅行卖点。", "这几个月的主角是巴伦支海、苔原、极昼、山湖、越野和海况允许时的鲸类观察。"]],
+      ["选择月份的三个问题", ["你更想要秋色、深冬雪原，还是白天更长的综合体验？", "同行人能否适应低温、夜间出发和凌晨返回？", "能否至少留出3个夜晚，并接受因云量、道路和风雪调整追光方向或行程顺序？"]],
+    ],
+  },
+  {
+    id: "teriberka-whale-calendar", title: "捷里别尔卡观鲸月份记录", read: "8分钟", image: "/images/teriberka-whale.webp",
+    label: "观鲸季节", topics: ["全年月份参考", "主要出海窗口", "海况与船期", "取消与替代"],
+    intro: "按月份梳理巴伦支海出海条件与常见旅行节奏。它是一份行程规划参考，不是鲸类出现概率表；野生动物、海况与港口安排均无法保证。",
+    sections: [
+      ["这份记录应该怎样使用", ["捷里别尔卡观鲸更准确的说法是‘出海寻找鲸类活动踪迹’。鲸类会随食物、洋流和海况移动，过去某月出现过，不代表同月每天都能遇见。", "判断一次出海是否值得，除了月份，还要看风浪、能见度、船型、航线、出航时长与船长当天的现场信息。"]],
+      ["1月至3月｜不作为常规观鲸窗口", ["冬季仍可能有鲸类活动记录，但白昼、低温、风浪和出航稳定性都限制旅行安排。", "这段时间更适合把捷里别尔卡作为北冰洋海岸与冬季景观行程，不应以‘一定观鲸’作为核心承诺。"]],
+      ["4月｜季节转换", ["白昼明显变长，海上活动逐步恢复，但冷空气、风浪和残雪仍可能影响出航。", "适合弹性较高的旅行者，把海岸景观作为主线、出海作为天气允许时的加项。"]],
+      ["5月｜观察季逐渐展开", ["进入春夏转换期，出海寻找鲸类的旅行需求开始增加。海面仍冷，防风、防水和晕船准备不能省。", "建议至少预留一个可调整日期，避免把出海放在离境当天。"]],
+      ["6月｜主要旅行窗口", ["极昼带来更长的可用光线，海岸与出海可以组合安排，是夏季观鲸旅行的重要月份。", "即使天气晴朗，巴伦支海也可能有风浪；是否开船仍由船方和当地安全条件决定。"]],
+      ["7月｜极昼与海岸体验", ["7月是中国游客较容易安排的暑期窗口，可把观鲸、旧渔村、瀑布和海岸步道放在同一天或拆分为两天。", "旺季船位与车辆需求较高，应提前确认。鲸类为野生动物，没有‘旺季必见’这一说法。"]],
+      ["8月｜夏季后段", ["仍适合安排巴伦支海出海和苔原旅行，日照开始缩短，但白天活动时间依然充足。", "天气转换可能更快，建议关注保暖、防雨和替代路线。"]],
+      ["9月｜夏秋交接", ["仍可能安排出海寻找鲸类，同时北极圈夜晚重新变暗，部分行程可兼顾季初追光。", "海上和夜间活动叠加会比较消耗体力，不建议把每日行程排得过满。"]],
+      ["10月至12月｜以海岸景观为主", ["冬季风浪、短日照和道路条件带来更多不确定性。即使供应方提供出海，也应把天气取消与替代安排写清楚。", "这一阶段的核心卖点应是雪原、北冰洋海岸和极光，而不是承诺鲸类结果。"]],
+      ["预订前必须确认", ["确认船型、救生设备、出航时长、集合地点和最低成行人数。", "确认因天气或港口原因无法出海时，是改期、替换项目还是重新核算费用。", "容易晕船的人应提前准备并咨询医生；出航当天穿防风防水外层，听从船员关于站位和移动的要求。"]],
+    ],
+  },
+  {
+    id: "china-traveler-faq-20", title: "中国游客最常见的20个问题", read: "12分钟", image: "/images/murmansk-city-aerial.jpg",
+    label: "行前问答", topics: ["签证与航班", "支付与网络", "极光与观鲸", "亲子与保险"],
+    intro: "从签证、航班、支付和网络，到极光、观鲸、亲子与合同，把第一次去摩尔曼斯克最容易卡住的20个问题集中说清楚。",
+    sections: [
+      ["01｜去俄罗斯需要签证吗？", ["中国公民入境俄罗斯通常需要符合当前政策的有效签证或适用的电子签证。政策、适用口岸和停留条件可能变化，出发前应以俄罗斯官方渠道、签证中心和承运航空公司的最新要求为准。"]],
+      ["02｜从中国怎样到摩尔曼斯克？", ["常见方式是先抵达莫斯科或圣彼得堡，再转乘俄罗斯国内航班前往摩尔曼斯克。联程与分开出票的行李规则、转机时间和误机责任不同，应逐段确认。"]],
+      ["03｜不会俄语可以去吗？", ["可以，但建议提前保存酒店、接待方、保险和紧急联系方式。Aurora Hunter协助中文沟通，具体车辆、向导和现场接待由合作的俄罗斯当地旅行社安排。"]],
+      ["04｜中国银行卡能正常使用吗？", ["不要完全依赖境外发行的Visa或Mastercard。银联可作为备用，但受理范围和网络状态并不固定；建议准备卢布现金，并在付款前确认合同主体与收款方式。"]],
+      ["05｜需要带多少卢布现金？", ["金额取决于餐食是否包含、是否购物和停留天数。可先覆盖数日餐饮、交通与紧急备用，再把大额旅游服务按合同约定支付；现金不要集中放在一个位置。"]],
+      ["06｜手机网络怎样解决？", ["可开通国际漫游，或抵达后使用俄罗斯电话卡；eSIM是否可用取决于手机型号、供应商和当地覆盖。提前下载离线地图、翻译和重要文件。"]],
+      ["07｜冬天到底有多冷？", ["常见体感会因月份、风力和等待时间差异很大，夜间追光比白天城市步行更冷。重点不是某个最低温数字，而是排汗层、保暖层、防风层、雪地靴与双层手套是否到位。"]],
+      ["08｜普通羽绒服够吗？", ["短时间城市活动可能够，但长时间野外追光更看重防风、长度、充绒和叠穿。不要用一件厚衣服代替完整的分层系统，也不要穿容易吸湿的牛仔裤去雪地久站。"]],
+      ["09｜追极光安排几晚合适？", ["建议至少连续3晚。多留夜间窗口能分散云层、降雪和道路风险，也避免把唯一一次追光压在返程前夜。"]],
+      ["10｜能保证看到极光吗？", ["不能。极光、云量和天气均无法人为控制。可靠的安排应该说明追光方式、等待策略和不利天气下的处理，而不是承诺百分之百。"]],
+      ["11｜手机能拍到极光吗？", ["多数带夜景模式的手机可以记录较明显的极光。尽量固定手机、关闭闪光灯、避免数码变焦；低温下电池掉电很快，应贴身保存备用电源。"]],
+      ["12｜一定要带专业相机吗？", ["不一定。相机和三脚架能获得更稳定画质，但如果旅行重点是体验，手机已经足够记录。不要为了拍照进入道路、冰面边缘或未确认安全的位置。"]],
+      ["13｜捷里别尔卡冬天一定能去吗？", ["不一定。冬季道路可能因风雪临时关闭，海岸停靠点也会因风力调整。是否出发、改期或替换路线，应以当地道路与安全判断为准。"]],
+      ["14｜观鲸能保证看到吗？", ["不能。鲸类是野生动物，会随食物、洋流和海况移动。出海本身还受风浪、能见度、港口和船方安全决定影响。"]],
+      ["15｜容易晕船怎么办？", ["提前向医生或药师咨询适合自己的晕船方案，并在登船前按说明使用。避免空腹或过量饮酒，船上移动时听从船员安排。严重晕船人群可把海岸景观作为主线，不强行出海。"]],
+      ["16｜多大的孩子适合冬季追光？", ["更建议7岁以上，8至15岁通常更容易兼顾理解力、体力与作息。低龄儿童需要重点评估夜间出发、凌晨返回、低温等待和长车程。"]],
+      ["17｜老人适合吗？", ["取决于心肺功能、行动能力、耐寒程度和基础疾病。计划夜间追光、海岸徒步或出海前，应咨询医生并如实告知接待方，必要时选择更短、更私人化的节奏。"]],
+      ["18｜旅行保险有必要吗？", ["建议购买覆盖俄罗斯、医疗、意外、紧急救援和行程变更的保险，并认真核对低温、海上活动或户外项目是否属于承保范围。发生情况时按保单要求保存证明。"]],
+      ["19｜当地吃饭方便吗？", ["摩尔曼斯克市区餐厅和超市选择相对充足；前往捷里别尔卡、山地或夜间追光时，时间和选择会减少。素食、过敏、儿童餐或清真需求应提前说明。"]],
+      ["20｜合同和付款由谁负责？", ["Aurora Hunter提供旅行信息咨询与中文沟通。具体产品确认、合同签署、收款、车辆、向导、保险责任与现场接待，由合作的俄罗斯持牌旅行社按最终确认文件执行。付款前应核对主体、包含项目、退改规则和收款账户。"]],
+    ],
+  },
 ];
+
+const featuredGuideIds = ["aurora-calendar", "teriberka-whale-calendar", "china-traveler-faq-20"];
+const featuredGuides = featuredGuideIds.map((id) => guides.find((guide) => guide.id === id)).filter(Boolean).map((guide) => ({ ...guide, detailPath: `/guide/${guide.id}` }));
 
 const scenery = [
   { title: "追赶北极光", label: "核心体验", image: "/images/hero-aurora.png", text: "摩尔曼斯克位于北极光带内。真正的追光不是守在固定地点，而是结合实时云图、道路和光污染情况，向更清晰的天空移动。连续留出多个夜晚，才更有机会遇到从淡绿色弧线到漫天舞动的不同形态。", points: ["建议连续停留至少三晚", "远离城市灯光并保留机动时间", "相机与手机均可获得基础拍摄指导"] },
@@ -277,6 +342,7 @@ const restaurants = [
 ];
 
 const guideCategories = [
+  ...featuredGuides,
   {
     id: "aurora-basics",
     title: "极光观测指南",
@@ -547,7 +613,7 @@ function CustomPage({ go }) {
 }
 
 function GuidesPage({ go }) {
-  return <><PageHero kicker="摩尔曼斯克旅行攻略" title="出发前，把重要问题先看清楚" text="这里整理摩尔曼斯克极光旅游、俄罗斯极光、北极圈旅行、冬季装备、摄影、亲子和当地接待相关信息。内容面向第一次前往摩尔曼斯克的中国游客。" /><section className="section wrap guide-hub"><div className="guide-feature guide-feature--checklist"><img src={guides[0].image} alt={guides[0].title} /><div><span>01 · 旅行完整清单 · {guides[0].read}</span><h2>{guides[0].title}</h2><p>{guides[0].intro}</p><button className="button button--dark" onClick={() => go(`/guide/${guides[0].id}`)}>阅读完整清单 <ArrowRight /></button></div></div><div className="guide-module-head"><p className="kicker kicker--dark"><span /> 02 · 攻略栏目</p><h2>按旅行问题查找答案</h2><p>每个栏目都可以点进阅读。先从自己最关心的问题开始：看极光、怎么去、怎么选团、带孩子、摄影或装备。</p></div><div className="guide-module-grid">{guideCategories.map((module, index) => <button className="guide-module-card" key={module.id} onClick={() => go(`/guide-topic/${module.id}`)}><div><span>{String(index + 1).padStart(2, "0")}</span><b>{module.label}</b></div><h3>{module.title}</h3><p>{module.intro}</p><ul>{module.topics.map((topic) => <li key={topic}>{topic}</li>)}</ul><em>阅读栏目 <ArrowRight /></em></button>)}</div><section className="faq-bank"><div><p className="kicker"><span /> 03 · FAQ</p><h2>出发前常见问题</h2><p>这里保留与上方攻略栏目不重复的快速问答，适合在提交行程需求前先扫一遍。</p></div><div className="faq-bank__list">{faqItems.map(([question, answer], index) => <article key={question}><button type="button"><span>{String(index + 1).padStart(2, "0")}</span>{question}</button><p>{answer}</p></article>)}</div></section></section></>;
+  return <><PageHero kicker="摩尔曼斯克旅行攻略" title="出发前，把重要问题先看清楚" text="这里整理摩尔曼斯克极光旅游、俄罗斯极光、北极圈旅行、冬季装备、摄影、亲子和当地接待相关信息。内容面向第一次前往摩尔曼斯克的中国游客。" /><section className="section wrap guide-hub"><div className="guide-feature guide-feature--checklist"><img src={guides[0].image} alt={guides[0].title} /><div><span>01 · 旅行完整清单 · {guides[0].read}</span><h2>{guides[0].title}</h2><p>{guides[0].intro}</p><button className="button button--dark" onClick={() => go(`/guide/${guides[0].id}`)}>阅读完整清单 <ArrowRight /></button></div></div><div className="guide-module-head"><p className="kicker kicker--dark"><span /> 02 · 攻略栏目</p><h2>按旅行问题查找答案</h2><p>每个栏目都可以点进阅读。先从自己最关心的问题开始：季节、观鲸、行前问答、极光、交通、选团、亲子、摄影或装备。</p></div><div className="guide-module-grid">{guideCategories.map((module, index) => <button className="guide-module-card" key={module.id} onClick={() => go(module.detailPath || `/guide-topic/${module.id}`)}><div><span>{String(index + 1).padStart(2, "0")}</span><b>{module.label}</b></div><h3>{module.title}</h3><p>{module.intro}</p><ul>{module.topics.map((topic) => <li key={topic}>{topic}</li>)}</ul><em>阅读栏目 <ArrowRight /></em></button>)}</div><section className="faq-bank"><div><p className="kicker"><span /> 03 · FAQ</p><h2>出发前常见问题</h2><p>这里保留与上方攻略栏目不重复的快速问答，适合在提交行程需求前先扫一遍。</p></div><div className="faq-bank__list">{faqItems.map(([question, answer], index) => <article key={question}><button type="button"><span>{String(index + 1).padStart(2, "0")}</span>{question}</button><p>{answer}</p></article>)}</div></section></section></>;
 }
 
 function GuideTopicDetail({ id, go }) {
@@ -557,7 +623,7 @@ function GuideTopicDetail({ id, go }) {
 
 function GuideDetail({ id, go }) {
   const guide = guides.find((item) => item.id === id) || guides[0];
-  return <><section className="guide-detail-hero"><img src={guide.image} alt={guide.title} /><div className="detail-hero__veil" /><div><p className="kicker"><span /> 北境实用指南 · {guide.read}</p><h1>{guide.title}</h1><p>{guide.intro}</p></div></section><section className="guide-article wrap"><main>{guide.sections.map(([heading, points], index) => <section key={heading}><span>0{index + 1}</span><div><h2>{heading}</h2>{points.map((point) => <p key={point}>{point}</p>)}</div></section>)}</main><aside><ShieldCheck /><h3>请以当地安排为准</h3><p>北境天气、道路和活动开放情况变化较快。具体行程由合作的俄罗斯持牌旅行社确认，旅途中提供群内中文服务。</p><button className="button button--dark" onClick={() => go("/custom")}>获取行程方案 <ArrowRight /></button></aside></section><section className="guide-more wrap"><button className="text-button text-button--dark" onClick={() => go("/guides")}><ArrowLeft /> 返回全部指南</button></section></>;
+  return <><section className="guide-detail-hero"><img src={guide.image} alt={guide.title} /><div className="detail-hero__veil" /><div><p className="kicker"><span /> 北境实用指南 · {guide.read}</p><h1>{guide.title}</h1><p>{guide.intro}</p></div></section><section className="guide-article wrap"><main>{guide.sections.map(([heading, points], index) => <section key={heading}><span>{String(index + 1).padStart(2, "0")}</span><div><h2>{heading}</h2>{points.map((point) => <p key={point}>{point}</p>)}</div></section>)}</main><aside><ShieldCheck /><h3>请以当地安排为准</h3><p>北境天气、道路和活动开放情况变化较快。具体行程由合作的俄罗斯持牌旅行社确认，旅途中提供群内中文服务。</p><button className="button button--dark" onClick={() => go("/custom")}>获取行程方案 <ArrowRight /></button></aside></section><section className="guide-more wrap"><button className="text-button text-button--dark" onClick={() => go("/guides")}><ArrowLeft /> 返回全部指南</button></section></>;
 }
 
 function AboutPage({ go }) {
@@ -577,6 +643,9 @@ const seoPages = {
   "/food": ["摩尔曼斯克美食指南_帝王蟹与北极餐厅推荐 | Aurora Hunter极光猎人", "第一次来摩尔曼斯克北极圈必吃帝王蟹、北极扇贝、海胆、鳕鱼、驯鹿肉、北极浆果与当地餐厅定位。"],
   "/about": ["关于Aurora Hunter极光猎人_摩尔曼斯克极光中文服务", "Aurora Hunter极光猎人提供摩尔曼斯克极光旅游信息咨询与群内中文服务，接待由合作俄罗斯持牌旅行社执行。"],
   "/custom": ["获取摩尔曼斯克极光行程方案 | Aurora Hunter极光猎人", "提交摩尔曼斯克极光旅游咨询需求，了解俄罗斯极光、北极光旅游、追光团和当地旅行社接待安排。"],
+  "/guide/aurora-calendar": ["摩尔曼斯克极光季节日历_9月至次年4月 | Aurora Hunter", "逐月了解摩尔曼斯克极光季、黑夜长度、雪景、体感和旅行玩法，比较9月至次年4月的追光体验。"],
+  "/guide/teriberka-whale-calendar": ["捷里别尔卡观鲸月份记录_巴伦支海出海指南 | Aurora Hunter", "按月份了解捷里别尔卡观鲸、巴伦支海海况与出海旅行窗口；鲸类为野生动物，出现无法保证。"],
+  "/guide/china-traveler-faq-20": ["中国游客去摩尔曼斯克最常见的20个问题 | Aurora Hunter", "集中解答摩尔曼斯克签证、航班、支付、网络、极光、观鲸、亲子、保险、合同与付款问题。"],
 };
 
 export function App() {

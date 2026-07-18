@@ -26,6 +26,9 @@ const routes = [
   "/guide/teriberka",
   "/guide/family-safety",
   "/guide/service-process",
+  "/guide/aurora-calendar",
+  "/guide/teriberka-whale-calendar",
+  "/guide/china-traveler-faq-20",
   "/guide-topic/aurora-basics",
   "/guide-topic/murmansk-city",
   "/guide-topic/aurora-tour",
@@ -67,6 +70,9 @@ for (const guide of [
   ["teriberka", "捷里别尔卡怎么安排"],
   ["family-safety", "多大的孩子适合去追极光"],
   ["service-process", "Aurora Hunter服务流程说明"],
+  ["aurora-calendar", "摩尔曼斯克极光季节日历"],
+  ["teriberka-whale-calendar", "捷里别尔卡观鲸月份记录"],
+  ["china-traveler-faq-20", "中国游客去摩尔曼斯克最常见的20个问题"],
 ]) {
   routeMeta[`/guide/${guide[0]}`] = [`${guide[1]} | Aurora Hunter极光猎人`, `阅读${guide[1]}，了解俄罗斯摩尔曼斯克极光旅游、北极圈旅行准备、当地接待和中文服务说明。`];
 }
