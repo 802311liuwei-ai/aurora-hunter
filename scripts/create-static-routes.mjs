@@ -111,7 +111,78 @@ function seoHead(route) {
     `<meta property="og:url" content="${url}" />`,
     `<meta name="twitter:title" content="${escapeHtml(title)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(description)}" />`,
+    `<script type="application/ld+json">${JSON.stringify(routeJsonLd(route, title, description, url))}</script>`,
   ].join("\n    ");
+}
+
+function routeLabel(route) {
+  if (route === "/") return "首页";
+  if (routeMeta[route]) return routeMeta[route][0].split(/[|_]/)[0].trim();
+  return route.split("/").filter(Boolean).pop();
+}
+
+function breadcrumbJsonLd(route, url) {
+  const parts = route === "/" ? [] : route.split("/").filter(Boolean);
+  const items = [{ "@type": "ListItem", position: 1, name: "首页", item: `${siteUrl}/` }];
+  if (parts.length) {
+    const section = parts[0];
+    const sectionMap = {
+      tour: ["完整行程", "/tours/"],
+      guide: ["旅行攻略", "/guides/"],
+      "guide-topic": ["旅行攻略", "/guides/"],
+    };
+    if (sectionMap[section]) {
+      items.push({ "@type": "ListItem", position: items.length + 1, name: sectionMap[section][0], item: `${siteUrl}${sectionMap[section][1]}` });
+    } else if (route !== `/${section}`) {
+      items.push({ "@type": "ListItem", position: items.length + 1, name: routeLabel(`/${section}`), item: absoluteUrl(`/${section}`) });
+    }
+    items.push({ "@type": "ListItem", position: items.length + 1, name: routeLabel(route), item: url });
+  }
+  return { "@type": "BreadcrumbList", itemListElement: items };
+}
+
+function routeJsonLd(route, title, description, url) {
+  const graph = [
+    {
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      url,
+      name: title,
+      description,
+      inLanguage: "zh-CN",
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      breadcrumb: { "@id": `${url}#breadcrumb` },
+    },
+    { "@id": `${url}#breadcrumb`, ...breadcrumbJsonLd(route, url) },
+  ];
+
+  if (route.startsWith("/guide/") || route.startsWith("/guide-topic/")) {
+    graph.push({
+      "@type": "Article",
+      "@id": `${url}#article`,
+      headline: title,
+      description,
+      inLanguage: "zh-CN",
+      mainEntityOfPage: { "@id": `${url}#webpage` },
+      author: { "@id": `${siteUrl}/#agency` },
+      publisher: { "@id": `${siteUrl}/#agency` },
+    });
+  }
+
+  if (route.startsWith("/tour/")) {
+    graph.push({
+      "@type": "Trip",
+      "@id": `${url}#trip`,
+      name: title,
+      description,
+      url,
+      provider: { "@id": `${siteUrl}/#agency` },
+      touristType: ["中国游客", "极光旅行者", "北极圈旅行者"],
+      itinerary: ["摩尔曼斯克", "捷里别尔卡", "科拉半岛"],
+    });
+  }
+
+  return { "@context": "https://schema.org", "@graph": graph };
 }
 
 function withRouteSeo(html, route) {
@@ -124,6 +195,7 @@ function withRouteSeo(html, route) {
     .replace(/<meta property="og:url" content=".*?" \/>/s, "")
     .replace(/<meta name="twitter:title" content=".*?" \/>/s, "")
     .replace(/<meta name="twitter:description" content=".*?" \/>/s, "")
+    .replace(/<script type="application\/ld\+json">\{"@context":"https:\/\/schema\.org","@graph":\[.*?\]\}<\/script>/s, "")
     .replace("</head>", `    ${seoHead(route)}\n  </head>`);
 }
 
