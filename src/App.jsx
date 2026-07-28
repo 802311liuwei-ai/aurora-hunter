@@ -562,7 +562,7 @@ const contactPhone = "19700781899";
 const contactPhoneDisplay = "197 0078 1899";
 const socialLinks = {
   xiaohongshu: "https://www.xiaohongshu.com/search_result?keyword=Aurora_Hunter",
-  weibo: "https://s.weibo.com/user?q=%E6%9E%81%E5%85%89%E7%8C%8E%E4%BA%BAVika",
+  weibo: "https://weibo.com/u/8239483696",
   douyin: "https://www.douyin.com/search/Aurora_Hunter?type=user",
 };
 
